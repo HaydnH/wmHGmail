@@ -1,0 +1,144 @@
+.TH wmHGmail 1 "15 NOVEMNBER 2017" 
+.SH NAME
+wmHGMail \- Window Maker Dockapp to show Gmail unread count using OAuth2 authentication.
+.SH SYNOPSIS
+.B wmHGmail
+[-f <font>] [-fs <size>] [-sb] [-sf] [-ls2 <percent>] [-ls3 <percent>] [-ls4 <percent>] [-ls5 <percent] [-eb  <Color>]  [-ef  <Color>]  [-lb  <Color>] [-lfg  <Color>] [-lfs1 <Color>] [-lfe1 <Color>] [-lfs2 <Color>] [-lfe2 <Color>] [-lfs3 <Color>] [-lfe3 <Color>] [-lfs4 <Color>] [-lfe4 <Color>] [-lfs5 <Color>] [-lfe5 <Color>] [-e <Command>] [in] [-w] [-c <Command] [-h]
+.SH DESCRIPTION
+.PP
+wmHGmail is a simple gmail unread counter for use as a Window Maker dockapp. 
+.SH OPTIONS
+.TP
+.B \-e <command>
+Command to execute when the dockapp receives a double click of mouse button 1.
+.TP
+.B \-f <font>
+Font to use for the unread count, can be any font recognised by cairo_select_font_face(). (Default: Arial)
+.TP
+.B \-fs <size>
+Font size for the unread count. (Default: 14)
+.TP
+.B \-s2 <count>
+By default, the mail icon changes color at 0, 1, 3, 5 and 10 unread emails. The -s2 flag allows you to change the count of the second step from 1 to a value of your choice. Note, there is no -s1 flag as the 0% -> s2 range always starts at 0%. (Default: 1)
+.TP
+.B \-s3 <count>
+See -s2, -s3 allows you to change the third step to a value of your choice. (Default: 3)
+.TP
+.B \-s4 <count>
+See -s2, -s4 allows you to change the fourth step to a value of your choice. (Default: 5)
+.TP
+.B \-s5 <count>
+See -ls2, -ls5 allows you to change the fifth step to a value of your choice. (Default: 10)
+.TP
+.B \-bg <color>
+Change the background color for the dockapp. (Default: d2dae4)
+.TP
+.B \-tf <color>
+The color of the mail icon envelope\'s top flap. (Default: f7f5ed)
+.TP
+.B \-rf <color>
+The color of the mail icon envelope\'s right flap. (Default: b7b6ad)
+.TP
+.B \-bf <color>
+The color of the mail icon envelope\'s bottom flap. (Default: e7e4d7)
+.TP
+.B \-lf <color>
+The color of the mail icon envelope\'s left flap. (Default: e7e4d7)
+.TP
+.B \-mls1 <color>
+The left leg and both shoulders of the M in the mail icon are a liner gradient. The -ml{s,e}{1-5} flags allow you to change the start and end colors of the gradient for each unread count step set with the corresponding -s{2-5} flags. For example, using the default change steps, using '-mls1 "#ff0000" -mle1 "#0000ff"' would change the fill to a red->blue gradient when the unread count is less than 1. (Default: 72ce46)
+.TP
+.B \-mls2 <color>
+See \-mls1, changes the M left leg gradient start color for the second unread count step. (Default: bcd788)
+.TP
+.B \-mls3 <color>
+See \-mls1, changes the M left leg gradient start color for the third unread count step. (Default: dcc200)
+.TP
+.B \-mls4 <color>
+See \-mls1, changes the M left leg gradient start color for the fourth unread count step. (Default: ebc984)
+.TP
+.B \-mls5 <color>
+See \-mls1, changes the M left leg gradient start color for the fifth unread count step. (Default: e99494)
+.TP
+.B \-mle1 <color>
+See \-mls1, changes the M left leg gradient end color for the second unread count step. (Default: 218c22)
+.TP
+.B \-mle2 <color>
+See \-mls1, changes the M left leg gradient end color for the second unread count step. (Default: 7ea336)
+.TP
+.B \-mle3 <color>
+See \-mls1, changes the M left leg gradient end color for the third unread count step. (Default: cfb505)
+.TP
+.B \-mle4 <color>
+See \-mls1, changes the M left leg gradient end color for the fourth unread count step. (Default: d59a21)
+.TP
+.B \-mle5 <color>
+See \-mls1, changes the M left leg gradient end color for the fifth unread count step. (Default: d63c3c)
+.TP
+.B \-mrs1 <color>
+See \-mls1, changes the M right leg gradient start color for the second unread count step. (Default: 72ce46)
+.TP
+.B \-mrs2 <color>
+See \-mls1, changes the M right leg gradient start color for the second unread count step. (Default: bcd788)
+.TP
+.B \-mrs3 <color>
+See \-mls1, changes the M right leg gradient start color for the third unread count step. (Default: dcc200)
+.TP
+.B \-mrs4 <color>
+See \-mls1, changes the M right leg gradient start color for the fourth unread count step. (Default: ebc984)
+.TP
+.B \-mrs5 <color>
+See \-mls1, changes the M right leg gradient start color for the fifth unread count step. (Default: e99494)
+.TP
+.B \-mre1 <color>
+See \-mls1, changes the M right leg gradient end color for the second unread count step. (Default: 218c22)
+.TP
+.B \-mre2 <color>
+See \-mls1, changes the M right leg gradient end color for the second unread count step. (Default: 7ea336)
+.TP
+.B \-mre3 <color>
+See \-mls1, changes the M right leg gradient end color for the third unread count step. (Default: cfb505)
+.TP
+.B \-mre4 <color>
+See \-mls1, changes the M right leg gradient end color for the fourth unread count step. (Default: d59a21)
+.TP
+.B \-mre5 <color>
+See \-mls1, changes the M right leg gradient end color for the fifth unread count step. (Default: d63c3c)
+.TP
+.B \-cb1 <color>
+Changes the background colour of the unread count circle for the first unread count step. (Default: 218c22)
+.TP
+.B \-cb2 <color>
+Changes the background colour of the unread count circle for the second unread count step. (Default: 7ea336)
+.TP
+.B \-cb3 <color>
+Changes the background colour of the unread count circle for the third unread count step. (Default: cfb505)
+.TP
+.B \-cb4 <color>
+Changes the background colour of the unread count circle for the fourth unread count step. (Default: d59a21)
+.TP
+.B \-cb5 <color>
+Changes the background colour of the unread count circle for the fifth unread count step. (Default: d63c3c)
+.TP
+.B \-cf1 <color>
+Changes the forground (font) colour of the unread count circle for the first unread count step. (Default: ffffff)
+.TP
+.B \-cf2 <color>
+Changes the forground (font) colour of the unread count circle for the second unread count step. (Default: ffffff)
+.TP
+.B \-cf3 <color>
+Changes the forground (font) colour of the unread count circle for the third unread count step. (Default: ffffff)
+.TP
+.B \-cf4 <color>
+Changes the forground (font) colour of the unread count circle for the fourth unread count step. (Default: ffffff)
+.TP
+.B \-cf5 <color>
+Changes the forground (font) colour of the unread count circle for the fifth unread count step. (Default: ffffff)
+.TP
+.B \-h
+Show the usage page.
+.TP
+.SH BUGS
+Please report bugs at: https://github.com/HaydnH/wmHGmail/issues
+.SH AUTHOR
+Haydn Haines <haydnhdev@gmail.com>

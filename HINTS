@@ -1,0 +1,71 @@
+Hints for wmHGMail
+
+Generic.
+--------
+% wmHGmail -h
+
+usage: wmHGmail [-e <command>] [-f <font>] [-fs <fontSize> ]
+  [-s2 <count>] [-s3 <count>] [-s4 <count>] [-s5 <count>]
+  [-bg <color>] [-tf <color>] [-rf <color>] [-bf <color>] [-lf <color>]
+  [-mle5 <color>] [-mle4 <color>] [-mle3 <color>] [-mle2 <color>] [-mle1 <color>]
+  [-mls5 <color>] [-mls4 <color>] [-mls3 <color>] [-mls2 <color>] [-mls1 <color>]
+  [-mre5 <color>] [-mre4 <color>] [-mre3 <color>] [-mre2 <color>] [-mre1 <color>]
+  [-mrs5 <color>] [-mrs4 <color>] [-mrs3 <color>] [-mrs2 <color>] [-mrs1 <color>]
+  [-cb1 <color>] [-cb2 <color>] [-cb3 <color>] [-cb4 <color>] [-cb5 <color>]
+  [-cf1 <color>] [-cf2 <color>] [-cf3 <color>] [-cf4 <color>] [-cf5 <color>]
+
+   -e <command>    Command to execute via double click of mouse button 1
+   -f              Cairo Font to use for mail count (Default: Arial)
+   -fs             Font size to use for mail count (Default: 14)
+   -s2 <count>     Number of mails at which to change mail icon color (Default: 1)
+   -s3 <count>     Number of mails at which to change mail icon color (Default: 3)
+   -s4 <count>     Number of mails at which to change mail icon color (Default: 5)
+   -s5 <count>     Number of mails at which to change mail icon color (Default: 10)
+   -bg <color>     Background color (default: d2dae4)
+   -tf <color>     Mail icon top flap color (default: f7f5ed)
+   -rf <color>     Mail icon right flap color (default: b7b6ad)
+   -bf <color>     Mail icon bottom flap color (default: e7e4d7)
+   -lf <color>     Mail icon left flap color (default: e7e4d7)
+   -mls1 <color>   Left leg gradient start color when unread > 0 (default: 72ce46)
+   -mls2 <color>   Left leg gradient start color when unread > s2 (default: bcd788)
+   -mls3 <color>   Left leg gradient start color when unread > s3 (default: dcc200)
+   -mls4 <color>   Left leg gradient start color when unread > s4 (default: ebc984)
+   -mls5 <color>   Left leg gradient start color when unread > s5 (default: e99494)
+   -mle1 <color>   Left leg gradient end color when unread > 0 (default: 218c22)
+   -mle2 <color>   Left leg gradient end color when unread > s2 (default: 7ea336)
+   -mle3 <color>   Left leg gradient end color when unread > s3 (default: cfb505)
+   -mle4 <color>   Left leg gradient end color when unread > s4 (default: d59a21)
+   -mle5 <color>   Left leg gradient end color when unread > s5 (default: d63c3c)
+   -mrs1 <color>   Right leg gradient start color when unread > 0 (default: 72ce46)
+   -mrs2 <color>   Right leg gradient start color when unread > s2 (default: bcd788)
+   -mrs3 <color>   Right leg gradient start color when unread > s3 (default: dcc200)
+   -mrs4 <color>   Right leg gradient start color when unread > s4 (default: ebc984)
+   -mrs5 <color>   Right leg gradient start color when unread > s5 (default: e99494)
+   -mre1 <color>   Right leg gradient end color when unread > 0 (default: 218c22)
+   -mre2 <color>   Right leg gradient end color when unread > s2 (default: 7ea336)
+   -mre3 <color>   Right leg gradient end color when unread > s3 (default: cfb505)
+   -mre4 <color>   Right leg gradient end color when unread > s4 (default: d59a21)
+   -mre5 <color>   Right leg gradient end color when unread > s5 (default: d63c3c)
+   -cb1 <color>    Count circle background color when unread > 0 (default: 218c22)
+   -cb2 <color>    Count circle background color when unread > s2 (default: 7ea336)
+   -cb3 <color>    Count circle background color when unread > s3 (default: cfb505)
+   -cb4 <color>    Count circle background color when unread > s4 (default: d59a21)
+   -cb5 <color>    Count circle background color when unread > s5 (default: d63c3c)
+   -cf1 <color>    Count font color when unread > 0 (default: ffffff)
+   -cf2 <color>    Count font color when unread > s2 (default: ffffff)
+   -cf3 <color>    Count font color when unread > s3 (default: ffffff)
+   -cf4 <color>    Count font color when unread > s4 (default: ffffff)
+   -cf5 <color>    Count font color when unread > s5 (default: ffffff)
+   -h              Show this usage message
+
+Example: wmHGmail -bg 0000FF
+
+
+WindowMaker.
+------------
+In WindowMaker simply drag and drop the wmHGmail App on the WindowMaker Dock or Clip.
+
+
+
+
+
