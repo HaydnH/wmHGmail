@@ -1,6 +1,6 @@
 CC     = gcc
-#CFLAGS = -O2 -Wall
-CFLAGS = -Wall -g
+CFLAGS = -O2 -Wall
+#CFLAGS = -Wall -g
 INCDIR = -I/usr/X11R6/include/X11 -I/usr/X11R6/include -I/usr/include/cairo -I/usr/include/json
 DESTDIR= /usr
 MANDIR = /usr/share/man
