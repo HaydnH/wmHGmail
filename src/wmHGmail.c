@@ -553,13 +553,13 @@ int main(int argc, char *argv[]) {
 // Function to check a valid 000000 color is provided
 void valid_color(char *argv, char ccol[6]) {
   if (strcmp(ccol, "missing") == 0 ||ccol[0] == '-' ) {
-    fprintf(stderr, "ERROR: No color found following %s flag, must have quotes or escaped #.\n", argv);
+    fprintf(stderr, "ERROR: No color found following %s flag.\n", argv);
     print_usage();
     exit(-1);
   }
 
   if (strlen(ccol) != 6 || ccol[strspn(ccol, "0123456789abcdefABCDEF")] != 0) {
-    fprintf(stderr, "ERROR: Invalid color following %s flag, should be valid hex \"000000\" format.\n", argv);
+    fprintf(stderr, "ERROR: Invalid color following %s flag.\n", argv);
     print_usage();
     exit(-1);
   }
