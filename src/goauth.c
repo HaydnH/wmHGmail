@@ -86,6 +86,9 @@ int readConf() {
 
     json_object_object_get_ex(jobj, "access_token", &jobj_aTok);
     aTokJ = (char *) json_object_get_string(jobj_aTok);
+    free(buffer);
+    free(jobj);
+    free(jobj_aTok);
     if (aTokJ) {
       strcpy(atoken, aTokJ);
       return 0;
@@ -139,6 +142,8 @@ void json2aToken(char *atokenJson) {
     json_object_object_add(jobj, "refresh_token", json_object_new_string(rtoken));
     writeConf(json_object_to_json_string_ext(jobj, JSON_C_TO_STRING_SPACED | JSON_C_TO_STRING_PRETTY));
   }
+  free(jobj);
+  free(jobj_aTok);
 }
 
 

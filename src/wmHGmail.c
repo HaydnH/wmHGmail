@@ -244,7 +244,6 @@ void drawMail(cairo_t *ctx) {
   cairo_pattern_add_color_stop_rgb(mrPat, 1, mre.r, mre.g, mre.b);
   cairo_set_source(ctx, mrPat);
 
-
   // Draw "M" right leg
   cairo_new_sub_path (ctx);
   cairo_arc(ctx, meX - mS, msY + mS, mS, 270 * degrees, 0 * degrees);
@@ -253,6 +252,10 @@ void drawMail(cairo_t *ctx) {
   cairo_line_to(ctx, meX - mS, msY);
   cairo_close_path (ctx);
   cairo_fill(ctx);
+
+  // Free Patterns
+  cairo_pattern_destroy(mlPat);
+  cairo_pattern_destroy(mrPat);
 }
 
 void drawCount(cairo_t *ctx) {
