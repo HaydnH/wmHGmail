@@ -73,31 +73,30 @@ int readConf() {
   fp = fopen(fileConf, "r");
   char *buffer = NULL;
   size_t len;
-  ssize_t bytes_read = getdelim( &buffer, &len, '\0', fp);
+  size_t bytes_read = getdelim(&buffer, &len, '\0', fp);
   fclose(fp);
-  if ( bytes_read != -1) {
-    json_object *jobj = json_tokener_parse(buffer);
-    struct json_object *jobj_aTok;
 
-    json_object_object_get_ex(jobj, "refresh_token", &jobj_aTok);
-    aTokJ = (char *) json_object_get_string(jobj_aTok);
+  struct json_object *jobj_in = NULL, *jobj_resR = NULL, *jobj_resA = NULL;
+
+  if (bytes_read != -1) {
+    jobj_in = json_tokener_parse(buffer);
+    json_object_object_get_ex(jobj_in, "refresh_token", &jobj_resR);
+    aTokJ = (char *) json_object_get_string(jobj_resR);
     if (aTokJ)
       strcpy(rtoken, aTokJ);
 
-    json_object_object_get_ex(jobj, "access_token", &jobj_aTok);
-    aTokJ = (char *) json_object_get_string(jobj_aTok);
-    free(buffer);
-    free(jobj);
-    free(jobj_aTok);
-    if (aTokJ) {
+    json_object_object_get_ex(jobj_in, "access_token", &jobj_resA);
+    aTokJ = (char *) json_object_get_string(jobj_resA);
+    if (aTokJ)
       strcpy(atoken, aTokJ);
-      return 0;
-    } else {
-      return 1;
-    }
-  } else {
-    return 1;
   }
+
+  free(buffer);
+  json_object_put(jobj_in);
+
+  if (!aTokJ)
+    return 1;
+  return 0;
 }
 
 
@@ -115,35 +114,29 @@ void writeConf(const char *jsonStr) {
 
 // Convert a google json response to an unread count integer
 void json2unread(char *unreadJson) {
-  int unreadJ = 0;
-  json_object *jobj = json_tokener_parse(unreadJson);
-  struct json_object *jobj_aTok;
-
-  json_object_object_get_ex(jobj, "messagesUnread", &jobj_aTok);
-  if (jobj_aTok) {
-    unreadJ = json_object_get_int(jobj_aTok);
-    uCount = unreadJ;
+  struct json_object *jobj_in = NULL, *jobj_out = NULL;
+  jobj_in = json_tokener_parse(unreadJson);
+  json_object_object_get_ex(jobj_in, "messagesUnread", &jobj_out);
+  if (jobj_out) {
+    uCount = json_object_get_int(jobj_out);
   }
-  free(jobj);
-  free(jobj_aTok);
+  json_object_put(jobj_in);
 }
 
 
 // Convert google json response to an access token
 void json2aToken(char *atokenJson) {
-  json_object *jobj = json_tokener_parse(atokenJson);
-  struct json_object *jobj_aTok;
+  struct json_object *jobj_in = NULL, *jobj_out = NULL;
+  jobj_in = json_tokener_parse(atokenJson);
+  json_object_object_get_ex(jobj_in, "access_token", &jobj_out);
 
-  json_object_object_get_ex(jobj, "access_token", &jobj_aTok);
-
-  if (jobj_aTok) {
-    json_object_object_get_ex(jobj, "access_token", &jobj_aTok);
-    sprintf(atoken, "%s", json_object_get_string(jobj_aTok));
-    json_object_object_add(jobj, "refresh_token", json_object_new_string(rtoken));
-    writeConf(json_object_to_json_string_ext(jobj, JSON_C_TO_STRING_SPACED | JSON_C_TO_STRING_PRETTY));
+  if (jobj_out) {
+    json_object_object_get_ex(jobj_in, "access_token", &jobj_out);
+    sprintf(atoken, "%s", json_object_get_string(jobj_out));
+    json_object_object_add(jobj_in, "refresh_token", json_object_new_string(rtoken));
+    writeConf(json_object_to_json_string_ext(jobj_in, JSON_C_TO_STRING_SPACED | JSON_C_TO_STRING_PRETTY));
   }
-  free(jobj);
-  free(jobj_aTok);
+  json_object_put(jobj_in);
 }
 
 
