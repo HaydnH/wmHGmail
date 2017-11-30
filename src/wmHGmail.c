@@ -432,14 +432,15 @@ int main(int argc, char *argv[]) {
   ParseCMDLine(argc, argv);
 
   // Set font options (should be outside the while loop?)
-  cairo_select_font_face(ctx, eFont, CAIRO_FONT_SLANT_NORMAL, CAIRO_FONT_WEIGHT_BOLD);
-  cairo_set_font_size(ctx, fSize);
   fopts = cairo_font_options_create();
   cairo_get_font_options(ctx, fopts);
+  cairo_select_font_face(ctx, eFont, CAIRO_FONT_SLANT_NORMAL, CAIRO_FONT_WEIGHT_BOLD);
+  cairo_set_font_size(ctx, fSize);
   cairo_font_options_set_hint_style(fopts, CAIRO_HINT_STYLE_NONE);
   cairo_font_options_set_antialias(fopts, CAIRO_ANTIALIAS_SUBPIXEL);
   cairo_font_options_set_subpixel_order(fopts, CAIRO_SUBPIXEL_ORDER_RGB);
   cairo_set_font_options(ctx, fopts);
+  cairo_font_options_destroy(fopts);
 
   // Set colors rgb elements
   h2dCol(bgptr);
