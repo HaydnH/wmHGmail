@@ -1,4 +1,4 @@
-## wmHGmail-1.00 release
+## wmHGmail
 Author: Haydn Haines
 		
   
