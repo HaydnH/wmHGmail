@@ -68,7 +68,7 @@ int        HasExecute = 0;		/* controls perf optimization */
 char	   ExecuteCommand[1024];
 char       TimeColor[30] = "#ffff00";
 char       BackgroundColor[30] = "#181818";
-char       unreadStr[10] = "?";
+char       unreadStr[12] = "?";
 int        uCount;
 int        uc2 = 1, uc3 = 3, uc4 = 5, uc5 = 10, bfA = 90, cfA = 90, pfA = 90;
 int        aState = 1;
@@ -856,7 +856,7 @@ void print_usage(){
 
  // This routine handles button presses.
 void ButtonPressEvent(XButtonEvent *xev){
-  char Command[512];
+  char Command[1026];
 
   if( HasExecute == 0) return; /* no command specified.  Ignore clicks. */
   DblClkDelay = 0;
