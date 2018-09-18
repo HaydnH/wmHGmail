@@ -1,6 +1,6 @@
 /*
  *
- *  	wmHGmail-1.0
+ *  	wmHGmail-1.03
  * 
  *
  * 	This program is free software; you can redistribute it and/or modify
@@ -19,9 +19,7 @@
  *      Boston, MA  02111-1307, USA
  *
  *
- *      Changes:
- *
- *	Version 1.00  -	released May 4th, 2017
+ *      Changes: See CHANGES file
  *
  */
 
