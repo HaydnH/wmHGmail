@@ -486,7 +486,7 @@ int main(int argc, char *argv[]) {
   h2dCol(cf5ptr);
 
   checkConf(pathConf);
-  if (readConf() != 0 || getUCount() == 401) {
+  if (readConf() != 0 || getUCount() == 401 || getUCount() == 400) {
     aState = 2;
     int terr, ttCount = 0;
     while (ttCount < 2) {
