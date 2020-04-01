@@ -102,13 +102,12 @@ int readConf() {
 
 // Write the json string provided as an argument to the config file
 void writeConf(const char *jsonStr) {
-    FILE *fp;
-    fp = fopen(fileConf, "w");
-    if (fp != NULL)
-    {
-        fputs(jsonStr, fp);
-        fclose(fp);
-    }
+  FILE *fp;
+  fp = fopen(fileConf, "w");
+  if (fp != NULL) {
+    fputs(jsonStr, fp);
+    fclose(fp);
+  }
 }
 
 
@@ -142,8 +141,7 @@ void json2aToken(char *atokenJson) {
 
 // Curl memory call back function
 static size_t
-WriteMemoryCallback(void *contents, size_t size, size_t nmemb, void *userp)
-{
+WriteMemoryCallback(void *contents, size_t size, size_t nmemb, void *userp) {
   size_t realsize = size * nmemb;
   struct MemoryStruct *mem = (struct MemoryStruct *)userp;
 
