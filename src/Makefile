@@ -1,5 +1,5 @@
 CC     = gcc
-CFLAGS = -O2 -Wall
+CFLAGS = -O2 -Wall -fcommon
 #CFLAGS = -Wall -g
 INCDIR = -I/usr/X11R6/include/X11 -I/usr/X11R6/include -I/usr/include/cairo -I/usr/include/json
 DESTDIR= /usr
