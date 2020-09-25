@@ -184,6 +184,7 @@ long doCurl(int flowStage) {
   char *url;
   char aurl[512] = "";
   char popts[512] = "";
+  char longurl[1024] = "";
   FILE *devnull = fopen("/dev/null", "w");
   int fd;
   CURL *curl;
@@ -249,13 +250,14 @@ long doCurl(int flowStage) {
       curl_easy_getinfo(curl, CURLINFO_EFFECTIVE_URL, &url);
       curl_easy_getinfo(curl, CURLINFO_RESPONSE_CODE, &httpres);
       if (flowStage == 1) {
+        sprintf(longurl, "%s?%s", url, popts);
         int pid = fork();
         if (pid == 0) {
         // Child process
           fd = open("/dev/null",O_WRONLY | O_CREAT, 0666);
           dup2(fd, 1);
           dup2(fd, 2);
-          execl("/bin/xdg-open", "/bin/xdg-open", url, (char *) 0);
+          execl("/bin/xdg-open", "/bin/xdg-open", longurl, (char *) 0);
           close(fd);
           exit(127);
 
